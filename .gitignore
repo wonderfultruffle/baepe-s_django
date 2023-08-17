@@ -1,0 +1,7 @@
+*.pyc
+*~
+bookmark/venv
+bookmark/db.sqlite3
+polls/venv
+polls/db.sqlite3
+
