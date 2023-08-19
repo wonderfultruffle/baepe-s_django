@@ -20,7 +20,7 @@ from django.urls import path, include
 from bookmark import views
 
 urlpatterns = [
-    path("", views.BookmarkListView.as_view(), name="bookmark"),
+    path("", include("bookmark.urls")),
     path("bookmark/", include("bookmark.urls")),
     path('admin/', admin.site.urls),
 ]
