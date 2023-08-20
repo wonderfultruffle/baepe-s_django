@@ -6,7 +6,7 @@ from django.views import generic
 from .models import Question, Choice
 
 # Create your views here.
-# 직접 구혀한 함수형 뷰
+# 직접 구현한 함수형 뷰
 # def index(request):
 #     latest_question_list = Question.objects.order_by("-pub_date")[:5]
 #     # output = ", ".join([q.question_text for q in latest_question_list])
