@@ -6,4 +6,5 @@ polls/venv
 polls/db.sqlite3
 Dstagram/venv
 Dstagram/db.sqlite3
+onlineshop/venv
 
