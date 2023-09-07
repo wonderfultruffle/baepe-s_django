@@ -40,7 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "storages",
+    "shop",
+
 ]
+
+DEFAULT_FILE_STORAGE = "config.asset_storage.MediaStorage"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
