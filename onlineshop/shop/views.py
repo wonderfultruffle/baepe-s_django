@@ -8,10 +8,10 @@ def product_in_category(request, category_slug=None):
     products = Product.objects.filter(available_display=True)
 
     if category_slug:
-        categories = get_object_or_404(Category, slug=category_slug)
+        current_category = get_object_or_404(Category, slug=category_slug)
         products = Product.objects.filter(category=current_category)
 
-    return render(request, "shop/list.html", {"current_category":current_category, "categories":categories, "products": products})
+    return render(request, "shop/list.html", {"current_category": current_category, "categories":categories, "products": products})
 
 def product_in_detail(request, id, product_slug=None):
     product = get_object_or_404(Product, id, slug=product_slug)

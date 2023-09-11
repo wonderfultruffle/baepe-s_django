@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 import pymysql
@@ -45,8 +45,6 @@ INSTALLED_APPS = [
 
 ]
 
-DEFAULT_FILE_STORAGE = "config.asset_storage.MediaStorage"
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -62,7 +60,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/"templates"],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,12 +132,12 @@ AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_REGION}.amazonaws.com
 AWS_S3_OBJECT_PARAMETERS = {
     "CacheControl": "max-age=86400",
 }
-AWS_DEFAULT_ACL = None
+AWS_DEFAULT_ACL = "public-read"
 AWS_LOCATION = "static"
 
 STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/"
 STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-
+DEFAULT_FILE_STORAGE = "config.asset_storage.MediaStorage"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

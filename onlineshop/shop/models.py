@@ -17,7 +17,7 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse("shop:proeuct_in_category", args=[self.slug])
+        return reverse("shop:product_in_category", args=[self.slug])
 
 
 class Product(models.Model):
@@ -36,7 +36,7 @@ class Product(models.Model):
     available_order = models.BooleanField("Order", default=True)
 
     created = models.DateTimeField(auto_now_add=True)
-    update = models.DateTimeField(auto_now=True)
+    updated = models.DateTimeField(auto_now=True)
 
     class Meta:
         ordering = ["-created"]
