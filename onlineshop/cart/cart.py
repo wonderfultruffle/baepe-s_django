@@ -1,6 +1,6 @@
 from decimal import Decimal
 from django.conf import settings
-from ..shop.models import Product
+from shop.models import Product
 
 class Cart(object):
     def __init__(self, request):
@@ -46,7 +46,7 @@ class Cart(object):
         self.session.modified = True
 
     def remove(self, product):
-        product_id = product.id
+        product_id = str(product.id)
         if product_id in self.cart:
             del(self.cart[product_id])
             self.save()
