@@ -23,4 +23,5 @@ urlpatterns = [
     path('accounts/', include("allauth.urls")),
     path('cart/', include("cart.urls")),
     path('', include("shop.urls")),
+    path('coupon/', include("coupon.urls")),
 ]
