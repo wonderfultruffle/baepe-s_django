@@ -3,7 +3,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 # Create your models here.
 class Coupon(models.Model):
-    code     = models.CharField(max_length=200, unique=True)
+    code     = models.CharField(max_length=50, unique=True)
     use_from = models.DateTimeField()
     use_to   = models.DateTimeField()
     amount   = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100000)])
