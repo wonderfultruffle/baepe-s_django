@@ -19,5 +19,6 @@ def add_coupon(request):
             request.session["coupon_id"] = coupon.id
         except Coupon.DoesNotExist:
             request.session["coupon_id"] = None
+            # 쿠폰이 사용 불가능한 상태일 때 알려주는 기능 + ui 추가하면 어떨까?
 
     return redirect("cart:detail")
