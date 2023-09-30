@@ -56,7 +56,7 @@ def find_transaction(order_id, *args, **kwargs):
         if res["code"] is 0:
             context = {
                 "imp_id": res["response"]["imp_uid"],
-                "merchant_id": res["response"]["merchant_uid"],
+                "merchant_order_id": res["response"]["merchant_uid"],
                 "amount": res["response"]["amount"],
                 "status": res["response"]["status"],
                 "type": res["response"]["pay_method"],
