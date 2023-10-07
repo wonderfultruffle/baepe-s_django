@@ -163,3 +163,7 @@ CART_ID = "cart_in_session"
 
 IAMPORT_KEY = "0255002664172264"
 IAMPORT_SECRET = "dkZa4pHhbS0Gm85g0qV67i8dh3MwOcX60aySyXDmht7dMMBtK3G0ICBGopSWtbXwL6ZNlI0PLd5P0PyS"
+
+STATICFILES_DIR = [
+    os.path.join(BASE_DIR, "static")
+]

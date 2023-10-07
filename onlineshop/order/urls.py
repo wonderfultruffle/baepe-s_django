@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import order_create, OrderCreateAjaxView, OrderCheckoutAjaxView, OrderImpAjaxView, order_complete
 
-app_name = "order"
+app_name = "orders"
 
 urlpatterns = [
     path("create/", order_create, name="order_create"),
