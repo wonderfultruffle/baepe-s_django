@@ -17,9 +17,10 @@ order_complete_url = "{% url 'orders:order_complete' %}";
 
 {% load static %} 
 <script src="{% static 'js/checkout.js' %}" type="text/javascript"></script>
+
 {% endblock %}
 
-{% block contents %}
+{% block content %}
 <div class="row">
     <div class="col">
         <div class="alert alert-info" role="alert">
@@ -28,8 +29,8 @@ order_complete_url = "{% url 'orders:order_complete' %}";
     
     <ul class="list-group">
         {% for item in cart %}
-            <li class="list-gruop-item">
-                {{item.quantity}} X {{item.name}}
+            <li class="list-group-item">
+                {{item.quantity}} X {{item.product.name}}
                 <span>{{item.total_price}}</span>
             </li>
         {% endfor %}
