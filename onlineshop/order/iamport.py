@@ -15,7 +15,7 @@ def get_token():
     url = "https://api.iamport.kr/users/getToken"
 
     req = requests.post(url, data=access_data)
-    access_res = req.json
+    access_res = req.json()
 
     if access_res["code"] == 0:
         return access_res["response"]["access_token"]
@@ -35,15 +35,15 @@ def payments_prepare(order_id, amount, *args, **kwargs):
             "amount": amount
         }
 
-        url = "https://api.import.kr/payments/prepare"
+        url = "https://api.iamport.kr/payments/prepare"
         headers = {
-            "Anthorized": access_token
+            "Authorization": access_token
         }
 
         req = requests.post(url, data=access_data, headers=headers)
         res = req.json()
         
-        if res["code"] is not 0:
+        if res["code"] != 0:
             raise ValueError("API 통신 오류")
     else:
         raise ValueError("토큰 오류")
@@ -64,7 +64,7 @@ def find_transaction(order_id, *args, **kwargs):
         req = requests.post(url, headers=headers)
         res = req.json()
 
-        if res["code"] is 0:
+        if res["code"] == 0:
             context = {
                 "imp_id": res["response"]["imp_uid"],
                 "merchant_order_id": res["response"]["merchant_uid"],

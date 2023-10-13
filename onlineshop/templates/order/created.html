@@ -50,9 +50,9 @@ order_complete_url = "{% url 'orders:order_complete' %}";
         {{form.as_p}}
         {% csrf_token %}
         
-        <input type="hidden" name="pre_order-id" value="0">
+        <input type="hidden" name="pre_order_id" value="0">
         <input type="hidden" name="amount" value="{{cart.get_total_price|floatformat:'2'}}">
-        <input type="submet" class="btn btn-primary float-right" value="Place Order">
+        <input type="submit" class="btn btn-primary float-right" value="Place Order">
     </form>
     </div>
 </div>

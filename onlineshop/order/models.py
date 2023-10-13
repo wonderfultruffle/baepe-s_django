@@ -9,20 +9,20 @@ from .iamport import payments_prepare, find_transaction
 
 # Create your models here.
 class Order(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    email = models.EmailField()
+    first_name =  models.CharField(max_length=50)
+    last_name =   models.CharField(max_length=50)
+    email =       models.EmailField()
 
-    address = models.CharField(max_length=250)
+    address =     models.CharField(max_length=250)
     postal_code = models.CharField(max_length=50)
-    city = models.CharField(max_length=50)
+    city =        models.CharField(max_length=50)
 
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-    paid = models.BooleanField(default=False)
+    created =     models.DateTimeField(auto_now_add=True)
+    updated =     models.DateTimeField(auto_now=True)
+    paid =        models.BooleanField(default=False)
 
-    coupon = models.ForeignKey(Coupon, on_delete=models.PROTECT, related_name="order_coupon", null=True, blank=True)
-    discount = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(100000)])
+    coupon =      models.ForeignKey(Coupon, on_delete=models.PROTECT, related_name="order_coupon", null=True, blank=True)
+    discount =    models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(100000)])
 
     class Meta:
         ordering = ["-created"]
@@ -38,10 +38,10 @@ class Order(models.Model):
         return total_product - self.discount
 
 class OrderItem(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="items")
-    product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name="order_products")
+    order =    models.ForeignKey(Order, on_delete=models.CASCADE, related_name="items")
+    product =  models.ForeignKey(Product, on_delete=models.PROTECT, related_name="order_products")
 
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    price =    models.DecimalField(max_digits=10, decimal_places=2)
     quantity = models.PositiveIntegerField(default=1)
 
     def __str__(self):
@@ -56,9 +56,9 @@ class OrderTransactionManager(models.Manager):
         if order is None:
             raise ("주문 오류")
 
-        order_hash = hashlib.sha1(f"{order.id}".encode("utf-8")).hexdigiest()
+        order_hash = hashlib.sha1(f"{order.id}".encode("utf-8")).hexdigest()
         email_hash = f"{order.email}".split('@')[0]
-        final_hash = hashlib.sha1((order_hash + email_hash).encode("utf-8")).hexdigiest()[:10]
+        final_hash = hashlib.sha1((order_hash + email_hash).encode("utf-8")).hexdigest()[:10]
         merchant_order_id = f"{final_hash}"
 
         payments_prepare(merchant_order_id, amount)

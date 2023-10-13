@@ -51,6 +51,7 @@ class OrderCreateAjaxView(View):
                 order.coupon = cart.coupon
                 order.discount = cart.coupon.amount
 
+            order = form.save()
             for item in cart:
                 OrderItem.objects.create(order=order, product=item["product"], price=item["price"], quantity=item["quantity"])
 
