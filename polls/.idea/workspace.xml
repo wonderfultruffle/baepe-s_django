@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b212f57c-1300-4670-be53-a57c93760b61" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Dstagram/photo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Dstagram/photo/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/polls/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/polls/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +32,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../CodingTest" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -54,6 +52,8 @@
       <workItem from="1692064317417" duration="14844000" />
       <workItem from="1692417634243" duration="1657000" />
       <workItem from="1692434983883" duration="1398000" />
+      <workItem from="1692800262759" duration="834000" />
+      <workItem from="1693230239632" duration="741000" />
     </task>
     <servers />
   </component>
@@ -61,9 +61,9 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1692429334140">
+    <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1693230386801">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="278" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1692429334140" />
+    <state x="740" y="278" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1693230386801" />
   </component>
 </project>

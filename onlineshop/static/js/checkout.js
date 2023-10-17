@@ -1,6 +1,6 @@
 $(function() {
-    var IMP = window.IMP
-    IMP.init("imp43546585")
+    // var IMP = window.IMP;
+    IMP.init('imp43546585');
 
     $(".order-form").on("submit", function(e){
         var amount = parseFloat($(".order-form input[name='amount']").val().replace(',', ''));
@@ -9,7 +9,7 @@ $(function() {
         // 폼 데이터를 기준으로 주문 생성
         var order_id = AjaxCreateOrder(e);
         if (order_id == false){
-            alert("주문 생성 실패\n다시 시도해주세요.")
+            alert("AjaxCreateOrder: 주문 생성 실패\n다시 시도해주세요.");
             return false;
         }
 
@@ -17,8 +17,10 @@ $(function() {
         var merchant_id = AjaxStoreTransaction(e, order_id, amount, type);
 
         // 생성된 결제 정보로 iamport 결제시도
-        if (merchant_id != ''){
+        if (merchant_id !== ''){
             IMP.request_pay({
+                "pg": "html5_inicis.INIBillTst",
+                "pay_method": "card",
                 "merchant_uid": merchant_id,
                 "name": "E-shop product",
                 "buyer_name": $('input["first_name"]').val() + ' ' + $('input["last_name"]').val(),
@@ -55,7 +57,7 @@ function AjaxCreateOrder(e){
         method: "POST",
         url: order_create_url,
         async: false,
-        data: $(".order-form").serialize()
+        data: $('.order-form').serialize()
     });
 
     request.done(function(data){
@@ -72,7 +74,7 @@ function AjaxCreateOrder(e){
             alert("로그인 해주세요");
         }
         else{
-            alert("문제가 발생했습니다. 다시 시도해주세요.")
+            alert("AjaxCreateOrder: 문제가 발생했습니다. 다시 시도해주세요.");
         }
     });
 
@@ -110,7 +112,7 @@ function AjaxStoreTransaction(e, order_id, amount, type){
             alert("로그인 해주세요");
         }
         else{
-            alert("문제가 발생했습니다. 다시 시도해주세요.")
+            alert("AjaxStoreTransaction: 문제가 발생했습니다. 다시 시도해주세요.");
         }
     });
 
@@ -146,7 +148,7 @@ function IMPTransaction(e, order_id, merchant_id, imp_id, amount){
             alert("로그인 해주세요");
         }
         else{
-            alert("문제가 발생했습니다. 다시 시도해주세요.")
+            alert("IMPTransaction: 문제가 발생했습니다. 다시 시도해주세요.");
         }
     });
 }

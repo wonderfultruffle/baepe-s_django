@@ -1,10 +1,12 @@
 *.pyc
 *~
-bookmark/venv
-bookmark/db.sqlite3
-polls/venv
-polls/db.sqlite3
-Dstagram/venv
-Dstagram/db.sqlite3
-onlineshop/venv
-
+# bookmark/venv
+# bookmark/db.sqlite3
+# polls/venv
+# polls/db.sqlite3
+# Dstagram/venv
+# Dstagram/db.sqlite3
+# onlineshop/venv
+*/venv
+*/dv.sqlite3
+.vscode/
