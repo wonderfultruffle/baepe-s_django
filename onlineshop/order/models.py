@@ -89,7 +89,7 @@ class OrderTransactionManager(models.Manager):
 
 class OrderTransaction(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    merchant_id = models.CharField(max_length=120, null=True, blank=True)
+    merchant_order_id = models.CharField(max_length=120, null=True, blank=True)
     transaction_id = models.CharField(max_length=120, null=True, blank=True)
 
     amount = models.PositiveIntegerField(default=0)

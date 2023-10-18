@@ -1,5 +1,5 @@
 $(function() {
-    // var IMP = window.IMP;
+    var IMP = window.IMP;
     IMP.init('imp43546585');
 
     $(".order-form").on("submit", function(e){
@@ -9,7 +9,7 @@ $(function() {
         // 폼 데이터를 기준으로 주문 생성
         var order_id = AjaxCreateOrder(e);
         if (order_id == false){
-            alert("AjaxCreateOrder: 주문 생성 실패\n다시 시도해주세요.");
+            alert("주문 생성 실패\n다시 시도해주세요.");
             return false;
         }
 

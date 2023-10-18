@@ -31,7 +31,7 @@ def payments_prepare(order_id, amount, *args, **kwargs):
     access_token = get_token()
     if access_token:
         access_data = {
-            "merchant_id": order_id,
+            "merchant_uid": order_id,
             "amount": amount
         }
 
