@@ -10,3 +10,4 @@
 */venv
 */dv.sqlite3
 .vscode/
+*/config/settings.py
