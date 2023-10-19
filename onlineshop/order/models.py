@@ -108,15 +108,15 @@ class OrderTransaction(models.Model):
 # 결제 검증 과정 이해 안됨. sender와 created는 언제 사용되는지...?
 def order_payment_validation(sender, instance, created, *args, **kwargs):
     if instance.transaction_id:
-        import_trasaction = OrderTransaction.objects.get_transaction(merchant_order_id=instance.merchant_order_id)
+        import_transaction = OrderTransaction.objects.get_transaction(merchant_order_id=instance.merchant_order_id)
 
-        imp_id = import_trasaction["imp_id"]
-        merchant_order_id = import_trasaction["merchant_order_id"]
-        amount = import_trasaction["amount"]
+        imp_id = import_transaction["imp_id"]
+        merchant_order_id = import_transaction["merchant_order_id"]
+        amount = import_transaction["amount"]
 
         local_transaction = OrderTransaction.objects.filter(merchant_order_id=merchant_order_id, transaction_id=imp_id, amount=amount).exists()
 
-        if not import_trasaction or not local_transaction:
+        if not import_transaction or not local_transaction:
             raise("비정상 거래입니다.")
 
 # 시그널 동작 원리... 잘 모르겠으.ㅁ

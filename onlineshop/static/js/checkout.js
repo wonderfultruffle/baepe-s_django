@@ -8,7 +8,7 @@ $(function() {
 
         // 폼 데이터를 기준으로 주문 생성
         var order_id = AjaxCreateOrder(e);
-        if (order_id == false){
+        if (order_id === false){
             alert("주문 생성 실패\n다시 시도해주세요.");
             return false;
         }
@@ -23,8 +23,8 @@ $(function() {
                 "pay_method": "card",
                 "merchant_uid": merchant_id,
                 "name": "E-shop product",
-                "buyer_name": $('input["first_name"]').val() + ' ' + $('input["last_name"]').val(),
-                "buyer_email": $("input['email']").val(),
+                "buyer_name": $('input[name="first_name"]').val() + ' ' + $('input[name="last_name"]').val(),
+                "buyer_email": $("input[name='email']").val(),
                 "amount": amount
             }, function(rsp) {
                 if (rsp.success){
@@ -48,6 +48,9 @@ $(function() {
     });
 });
 
+/**
+ * @return {string}
+ */
 function AjaxCreateOrder(e){
     e.preventDefault();
 
@@ -67,10 +70,10 @@ function AjaxCreateOrder(e){
     });
 
     request.fail(function(jqXHR, textStatus){
-        if (jqXHR.status == 404) {
+        if (jqXHR.status === 404) {
             alert("페이지가 존재하지 않습니다.");
         }
-        else if (jqXHR.status == 403){
+        else if (jqXHR.status === 403){
             alert("로그인 해주세요");
         }
         else{
@@ -81,6 +84,9 @@ function AjaxCreateOrder(e){
     return order_id;
 }
 
+/**
+ * @return {string}
+ */
 function AjaxStoreTransaction(e, order_id, amount, type){
     e.preventDefault();
 
@@ -105,10 +111,10 @@ function AjaxStoreTransaction(e, order_id, amount, type){
     });
 
     request.fail(function(jqXHR, textStatus){
-        if (jqXHR.status == 404) {
+        if (jqXHR.status === 404) {
             alert("페이지가 존재하지 않습니다.");
         }
-        else if (jqXHR.status == 403){
+        else if (jqXHR.status === 403){
             alert("로그인 해주세요");
         }
         else{
@@ -130,21 +136,21 @@ function IMPTransaction(e, order_id, merchant_id, imp_id, amount){
             merchant_id: merchant_id,
             imp_id: imp_id,
             amount: amount,
-            csrfmiddlewaretoken: csrf_token,
+            csrfmiddlewaretoken: csrf_token
         }
     });
 
     request.done(function(data){
         if (data.works){
-            $(location).attr("href", location.origin+order_complete_url+"?order_id"+order_id)
+            $(location).attr("href", location.origin+order_complete_url+"?order_id="+order_id)
         }
     });
 
     request.fail(function(jqXHR, textStatus){
-        if (jqXHR.status == 404) {
+        if (jqXHR.status === 404) {
             alert("페이지가 존재하지 않습니다.");
         }
-        else if (jqXHR.status == 403){
+        else if (jqXHR.status === 403){
             alert("로그인 해주세요");
         }
         else{

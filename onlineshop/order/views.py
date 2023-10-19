@@ -91,7 +91,7 @@ class OrderCheckoutAjaxView(View):
 
 class OrderImpAjaxView(View):
     def post(self, request, *args, **kwargs):
-        if not request.user_is_authenticated:
+        if not request.user.is_authenticated:
             return JsonResponse({"authenticated": False}, status=403)
 
         order_id = request.POST.get("order_id")
