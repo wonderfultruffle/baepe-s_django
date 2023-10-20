@@ -27,7 +27,7 @@ def order_create(request):
 
     else:
         form = OrderCreateForm()
-        return render(request, "order/created.html", {"cart": cart, "form":form})
+    return render(request, "order/create.html", {"cart": cart, "form":form})
 
 def order_complete(request):
     order_id = request.GET.get("order_id")

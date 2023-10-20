@@ -54,7 +54,7 @@ def find_transaction(order_id, *args, **kwargs):
     '''
     access_token = get_token()
     if access_token:
-        url = "https://api.import.kr/payments/find/"+order_id
+        url = "https://api.iamport.kr/payments/find/"+order_id
 
         headers = {
             "Authorization": access_token
@@ -70,7 +70,7 @@ def find_transaction(order_id, *args, **kwargs):
                 "amount": res["response"]["amount"],
                 "status": res["response"]["status"],
                 "type": res["response"]["pay_method"],
-                "receipt_url": res["response"]["receipt_utl"]
+                "receipt_url": res["response"]["receipt_url"]
             }
             return context
         else:
