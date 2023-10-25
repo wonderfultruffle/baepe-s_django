@@ -39,6 +39,7 @@ order_detail.short_description = "Detail"
 
 def order_pdf(obj):
     return mark_safe(f"<a href=\"{reverse('orders:admin_order_pdf', args=[obj.id])}\">PDF</a>")
+
 order_pdf.short_description = "PDF"
 
 
@@ -47,8 +48,8 @@ class OrderItemInline(admin.TabularInline):
     raw_id_fields = ["product"]
     
 class OrderAdmin(admin.ModelAdmin):
-    # list_display = ["id", "first_name", "last_name", "email", "address", "postal_code", "city", "paid", order_detail, order_pdf, "created", "updated"]
-    list_display = ["id", "first_name", "last_name", "email", "address", "postal_code", "city", "paid", order_detail, "created", "updated"]
+    list_display = ["id", "first_name", "last_name", "email", "address", "postal_code", "city", "paid", order_detail, order_pdf, "created", "updated"]
+    # list_display = ["id", "first_name", "last_name", "email", "address", "postal_code", "city", "paid", order_detail, "created", "updated"]
     list_filter = ["paid", "created", "updated"]
     inlines = [OrderItemInline]
     actions = [export_to_csv]
