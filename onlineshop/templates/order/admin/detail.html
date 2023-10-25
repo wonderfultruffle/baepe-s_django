@@ -1,10 +1,14 @@
 {% extends "admin/base_site.html" %}
 
+{% block title %}
+    Order {{ order.id }}
+{% endblock %}
+
 {% block breadcrumbs %}
-<div class="breakdcrumbs">
+<div class="breadcrumbs">
     <a href="{% url 'admin:index' %}">Home</a> &rsaquo;
     <a href="{% url 'admin:order_order_changelist' %}">Orders</a> &rsaquo;
-    <a href="{% url 'admin:order_order_change' %}">Order {{order.id}}</a> &rsaquo;
+    <a href="{% url 'admin:order_order_change' order.id %}">Order {{order.id}}</a> &rsaquo;
     Detail
 </div>
 {% endblock %}

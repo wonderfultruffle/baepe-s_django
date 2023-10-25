@@ -1,9 +1,9 @@
 import csv
 import datetime
 
-from django.contrib import admin
-from django.http import HttpResponse
 from django.urls import reverse
+from django.http import HttpResponse
+from django.contrib import admin
 from django.utils.safestring import mark_safe
 
 from .models import OrderItem, Order
@@ -15,7 +15,7 @@ def export_to_csv(modeladmin, request, queryset):
     response["Content-Disposition"] = f"attachment;filename={opts.verbose_name}.csv"
     writer = csv.writer(response)
 
-    fields = [field for field in opts.get_fields() if field.many_to_many or field.one_to_many]
+    fields = [field for field in opts.get_fields() if not field.many_to_many and not field.one_to_many]
     writer.writerow([field.verbose_name for field in fields])
     
     data_row = []
@@ -48,9 +48,12 @@ class OrderItemInline(admin.TabularInline):
     
 class OrderAdmin(admin.ModelAdmin):
     # list_display = ["id", "first_name", "last_name", "email", "address", "postal_code", "city", "paid", order_detail, order_pdf, "created", "updated"]
-    list_display = ["id", "first_name", "last_name", "email", "address", "postal_code", "city", "paid", "created", "updated"]
+    list_display = ["id", "first_name", "last_name", "email", "address", "postal_code", "city", "paid", order_detail, "created", "updated"]
     list_filter = ["paid", "created", "updated"]
     inlines = [OrderItemInline]
     actions = [export_to_csv]
 
-admin.site.register(Order, OrderAdmin)    
+admin.site.register(Order, OrderAdmin)
+
+
+
