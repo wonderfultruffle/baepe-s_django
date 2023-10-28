@@ -8,6 +8,6 @@
 # Dstagram/db.sqlite3
 # onlineshop/venv
 */venv
-*/dv.sqlite3
+*/db.sqlite3
 .vscode/
 */config/settings.py
