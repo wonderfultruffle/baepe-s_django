@@ -46,12 +46,12 @@
                 <tr class="subtotal">
                     <td>Subtotal</td>
                     <td colspan="4"></td>
-                    <td>${{cart.get_product_total_price}}</td>
+                    <td>￦{{cart.get_product_total_price}}</td>
                 </tr>
                 <tr>
-                    <td>"{{cart.coupon.code}}" coupon (${{cart.coupon.amount}})</td>
+                    <td>"{{cart.coupon.code}}" coupon (￦{{cart.coupon.amount}})</td>
                     <td colspan="4"></td>
-                    <td>- ${{cart.get_discount_total|floatformat:'2'}}</td>
+                    <td>- ￦{{cart.get_discount_total|floatformat:'2'}}</td>
                 </tr>
             {% endif %}
             <tr class="total">

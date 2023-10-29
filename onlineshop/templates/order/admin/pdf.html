@@ -29,20 +29,20 @@
             {% for item in order.items.all %}
                 <tr class="row{% cycle "1" "2" %}">
                     <td>{{ item.product.name }}</td>
-                    <td class="num">${{ item.price }}</td>
+                    <td class="num">￦{{ item.price }}</td>
                     <td class="num">{{ item.quantity }}</td>
-                    <td class="num">${{ item.get_item_price }}</td>
+                    <td class="num">￦{{ item.get_item_price }}</td>
                 </tr>
             {% endfor %}
                 {%  if order.coupon %}
                 <tr class="disconut">
                 <td colspan="3">Discount</td>
-                <td class="num">${{ order.discount }}</td>
+                <td class="num">￦{{ order.discount }}</td>
                 </tr>
                 {%  endif %}
                 <tr class="total">
                     <td colspan="3">Total</td>
-                    <td class="num">${{ order.get_total_price }}</td>
+                    <td class="num">￦{{ order.get_total_price }}</td>
                 </tr>
         </tbody>
     </table>
