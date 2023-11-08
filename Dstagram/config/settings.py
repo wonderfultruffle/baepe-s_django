@@ -135,10 +135,10 @@ LOGIN_REDIRECT_URL = "/"
 DISQUS_WEBSITE_SHORTNAME = "truffle_dstagram"
 SITE_ID = 1
 
-AWS_ACCESS_KEY = "AKIAVL7THOAJCJ5M4Q3M"
-AWS_SECRETE_ACCESS_KEY = "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"
-AWS_REGION = "ap-northeast-2"
-AWS_STORAGE_BUCKET_NAME = "truffle-dstagram"
-AWS_S3_CUSTOM_DOMAIN = "%s.s3.%s.amazonaws.com" % (AWS_STORAGE_BUCKET_NAME, AWS_REGION)
-AWS_S3_OBJECT_PARAMETERS = {"CacheControl": "max-age=86400",}
-DEFAULT_FILE_STORAGE = "config.asset_storage.MediaStorage"
+# AWS_ACCESS_KEY = "AKIAVL7THOAJCJ5M4Q3M"
+# AWS_SECRETE_ACCESS_KEY = "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"
+# AWS_REGION = "ap-northeast-2"
+# AWS_STORAGE_BUCKET_NAME = "truffle-dstagram"
+# AWS_S3_CUSTOM_DOMAIN = "%s.s3.%s.amazonaws.com" % (AWS_STORAGE_BUCKET_NAME, AWS_REGION)
+# AWS_S3_OBJECT_PARAMETERS = {"CacheControl": "max-age=86400",}
+# DEFAULT_FILE_STORAGE = "config.asset_storage.MediaStorage"

@@ -16,7 +16,7 @@ class Photo(models.Model):
         ordering = ["-updated"]
 
     def __str__(self):
-        return f"{self.author.username} {self.created.strftime('%Y-%m-%d %H:%M:%S')}"
+        return f"{self.author.username} {self.created.strftime('%Y-%m-%d%H:%M:%S')}"
 
     def get_absolute_url(self):
         return reverse('photo:photo_detail', args=[str(self.id)])
