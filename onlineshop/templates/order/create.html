@@ -38,7 +38,7 @@ order_complete_url = "{% url 'orders:order_complete' %}";
             {% if cart.coupon %}
                 <li class="list-group-item">
                     "{{cart.coupon.code}}"({{cart.coupon.amount}}% off)
-                    <span>- ${{cart.get_total_discount|floatformat:"2"}}</span>
+                    <span>- ￦{{cart.get_total_discount|floatformat:"2"}}</span>
                 </li>
             {% endif %}
         </ul>

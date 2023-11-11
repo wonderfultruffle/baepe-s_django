@@ -33,7 +33,7 @@
                 <li class="nav-item active">
                     <a class="nav-link btn btn-outline-success" href="{% url 'cart:detail' %}">Cart
                         {% if cart|length > 0 %}
-                            ${{cart.get_total_price}} with {{cart|length}} items
+                            ￦{{cart.get_total_price}} with {{cart|length}} items
                         {% else %}
                             : Empty
                         {% endif %}
